@@ -1,5 +1,5 @@
 # Note that you will need to specify NoNewLine for the first entry as well
-$path = 'test/copytest/fruits.txt'
+Set-Location -Path "/test/copytest/fruits.txt"
 get-location
 # 'BlueBerry;' | Out-File -FilePath $path -NoNewline
 
