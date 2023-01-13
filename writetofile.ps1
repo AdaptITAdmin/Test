@@ -1,5 +1,5 @@
 # Note that you will need to specify NoNewLine for the first entry as well
-$path = "C:\Users\spardy\Desktop\Powershell Scripting Tutorial\fruits.txt"
+$path = test/copytest/fruits.txt
 'BlueBerry;' | Out-File -FilePath $path -NoNewline
 
 # Appending more berries
