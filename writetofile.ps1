@@ -1,8 +1,9 @@
 # Note that you will need to specify NoNewLine for the first entry as well
-'BlueBerry;' | Out-File -FilePath C:\fruits.txt -NoNewline
+$path = "C:\Users\spardy\Desktop\Powershell Scripting Tutorial\fruits.txt"
+'BlueBerry;' | Out-File -FilePath $path -NoNewline
 
 # Appending more berries
-'StrawBerry;' | Out-File -FilePath C:\fruits.txt -Append -NoNewline
-'BlackBerry;' | Out-File -FilePath C:\fruits.txt -Append -NoNewline
-'RaspBerry;' | Out-File -FilePath C:\fruits.txt -Append -NoNewline
-'CranBerry;' | Out-File -FilePath C:\fruits.txt -Append -NoNewline
+'StrawBerry;' | Out-File -FilePath $path -Append -NoNewline
+'BlackBerry;' | Out-File -FilePath $path -Append -NoNewline
+'RaspBerry;' | Out-File -FilePath  $path -Append -NoNewline
+'CranBerry;' | Out-File -FilePath  $path -Append -NoNewline
