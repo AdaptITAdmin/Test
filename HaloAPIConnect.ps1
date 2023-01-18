@@ -1,3 +1,11 @@
+if (Get-Module -ListAvailable -Name Az) {
+    Import-Module Az.Accounts 
+} else {
+    Install-Module Az -Force -AllowClobber -Scope AllUsers
+    Import-Module Az
+}
+
+
 #------------Example: How to retrieve a Secret-----------
 $TenantId = "17b3e2dc-8581-4b06-9ac5-53e0448a6742"
 $ApplicationId = "0cc6174e-e7b0-45c5-aad9-4bed07a3dd3b"
@@ -7,7 +15,7 @@ Connect-AzAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -Applicat
 
 
 #Setup Halo
-$HaloClientID = Get-AzKeyVaultSecret -vaultName "AdaptITKeyVault" -name "#{HaloClientID}#" -AsPlainText
+$HaloClientID = Get-AzKeyVaultSecret -vaultName "AdaptITKeyVault" -name "ProdHaloClientID" -AsPlainText
 $HaloClientSecret = Get-AzKeyVaultSecret -vaultName "AdaptITKeyVault" -name "ProdHaloClientSecret" -AsPlainText
 $HaloURL = "https://helpdesk.adapt-it.com"
 $HaloTenant = "adaptit"
@@ -20,4 +28,3 @@ if (Get-Module -ListAvailable -Name HaloAPI) {
 }
 
 Connect-HaloAPI -URL $HaloURL -ClientId $HaloClientID -ClientSecret $HaloClientSecret -Scopes "all" -Tenant $HaloTenant
-
